@@ -1,0 +1,53 @@
+/* Layer order lets Ant Design (cssinjs `layer`) sit between Tailwind's base and utilities. */
+@layer theme, base, antd, components, utilities;
+
+@import "tailwindcss";
+
+@theme inline {
+  --color-navy: #142b3b;
+  --color-teal: #176b68;
+  --color-ivory: #f8f6f0;
+  --color-gold: #c5a46d;
+  --color-slate: #687582;
+  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-playfair), ui-serif, Georgia, serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
+body {
+  background: #ffffff;
+  color: #142b3b;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Keep anchored sections clear of the sticky navbar. */
+section[id] {
+  scroll-margin-top: 4.5rem;
+}
+
+:focus-visible {
+  outline: 2px solid #176b68;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+::selection {
+  background: #c5a46d55;
+}
